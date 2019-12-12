@@ -1,14 +1,19 @@
+
+
 h1 {
-    color: black;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-weight: bold;
     text-align: center;
     font-size: 2em;
     margin-block-end: 0.4em;
     margin-top: 20px;
+    font-family: "Pacifico";
 }
 
 body {
     background-size: contain;
+    background-image: url("images/colorfulBackground.jpg");
 }
 
 #menuTop, #menuBot {
@@ -55,13 +60,13 @@ body {
 }
 
 .pixeled {
-    background-color: black;
+    background: black;
 }
 
 .blueColor {
-    background-color: blue;
+    background: blue;
 }
 
 .redColor {
-    background-color: red;
+    background: red;
 }
