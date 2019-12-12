@@ -1,18 +1,23 @@
 <DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Etch-A-Sketch</title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Etch-A-Sketch</h1>
-        <div id = "menu">
-            <div id = "changeSize" onclick = "inputSize()">Change Size</div>
-            <div id = "clearBoard" onclick = "clearGrid()">Clear Board</div>
-        </div>
-        <div id = "container"></div>
-        <script src="script.js"></script>
-    </body>
-</html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Etch-A-Sketch</title>
+            <link rel="stylesheet" href="reset.css">
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <h1>Etch-A-Sketch</h1>
+            <div id = "menuTop">
+                <div id = "changeSize" onclick = "inputSize()">Change Size</div>
+                <div id = "clearBoard" onclick = "clearGrid()">Clear Board</div>
+            </div>
+            <div id = "container"></div>
+            <div id = "menuBot">
+                <div id = "randomColorMarker" onclick = "changeMarkerColor(2)">Random Color</div>
+                <div id = "gradientMarker" onclick = "changeMarkerColor(1)">Gradient</div>
+                <div id = "blackMarker" onclick = "changeMarkerColor(0)">Black</div>
+            </div>
+            <script src="script.js"></script>
+        </body>
+    </html>
