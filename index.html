@@ -5,19 +5,20 @@
             <title>Etch-A-Sketch</title>
             <link rel="stylesheet" href="reset.css">
             <link rel="stylesheet" href="style.css">
+            <link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         </head>
         <body>
             <h1>Etch-A-Sketch</h1>
             <div id = "menuTop">
-                <div id = "changeSize" onclick = "inputSize()">Change Size</div>
-                <div id = "clearBoard" onclick = "clearGrid()">Clear Board</div>
+                <div class = "button" id = "blackMarker" onclick = "changeMarkerColor(0)">BLACK</div>
+                <div class = "button" id = "gradientMarker" onclick = "changeMarkerColor(1)">GRADIENT</div>
+                <div class = "button" id = "randomMarker" onclick = "changeMarkerColor(2)">RANDOM COLORS</div>
             </div>
             <div id = "container"></div>
             <div id = "menuBot">
-                <div id = "randomColorMarker" onclick = "changeMarkerColor(2)">Random Color</div>
-                <div id = "gradientMarker" onclick = "changeMarkerColor(1)">Gradient</div>
-                <div id = "blackMarker" onclick = "changeMarkerColor(0)">Black</div>
+                <div class = "button" id = "changeSize" onclick = "inputSize()">CHANGE SIZE</div>
+                <div class = "button" id = "clearBoard" onclick = "clearGrid()">CLEAR BOARD</div>
             </div>
             <script src="script.js"></script>
         </body>
