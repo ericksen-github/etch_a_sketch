@@ -6,6 +6,14 @@ let markerColor = "black";
 // sets container size, creates divs to fill container, gives divs listener, adds divs
 function makeGrid(num) {
 
+    // stops function if user pushes cancel on new input, leaving old grid in place
+    if (num == null) {
+        return;
+    }
+
+    // clears old grid to make room for new grid
+    resetGrid();
+
     let boxSize = (600 / num) + "px";
     let boxTotal = num * num;
     let container = document.querySelector("#container");
@@ -68,15 +76,17 @@ function clearGrid() {
     boxes.forEach(boxes=> boxes.style.background = "rgb(255, 255, 255)");
 }
 
-// gets user to input new size, checks for correct input, removes old grid,
-// and then makes new grid based on input
+// gets user to input new size, checks for correct input, 
+// and then calls to make new grid based on input
 function inputSize() {
     let answer = prompt("How many squares across would you like?");
     while (isNaN(answer) || answer < 1 || answer > 99) {
+        if (answer == null) {
+            break;
+        }
         answer = prompt("How many squares across would you like? You must input a number " + 
                         "between 1 and 99");
     }
-    resetGrid();
     makeGrid(answer);
 }
 
