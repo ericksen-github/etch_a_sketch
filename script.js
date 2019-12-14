@@ -21,37 +21,32 @@ function makeGrid(num) {
         div.classList.add("boxes");
         div.setAttribute("id", "div" + i);
 
-        div.addEventListener("mouseover", changeBoxColor);
+        div.addEventListener("mouseover", determinePaintColor);
 
         document.getElementById("container").appendChild(div);
     }
 }
 
-// sets target to selected color
-function changeBoxColor(e) {
-        e.target.style.backgroundColor = determinePaintColor(e.target.style.background);
-}
-
 // random sets all hex characters and iterates through them randomly 
 // using Math.random() then sets them equal to color
 // gradient at bottom takes current rgb value, splits it, and adjusts by 10%
-function determinePaintColor(current) {
+function determinePaintColor(e) {
     if (markerColor == "black") {
-        return "black";
+        return e.target.style.backgroundColor = "black";
     } else if (markerColor == "random") {
         var letters = '0123456789ABCDEF';
         var color = '#';
         for (var i = 0; i < 6; i++) {
           color += letters[Math.floor(Math.random() * 16)];
         }
-        return color;
+        return e.target.style.backgroundColor = color;
     } else {
-        const rgb = current.replace(/[^\d,]/g, '').split(',');
+        const rgb = e.target.style.backgroundColor.replace(/[^\d,]/g, '').split(',');
         rgb[2] = rgb[1]; // for some reason rgb[2] was alwasy 25500. this fixed it. 
         rgb[0] -= Math.round((255 / 100) * 10);
         rgb[1] -= Math.round((255 / 100) * 10);
         rgb[2] -= Math.round((255 / 100) * 10);
-        return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+        e.target.style.backgroundColor = `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
     }
 }
 
@@ -73,9 +68,14 @@ function clearGrid() {
     boxes.forEach(boxes=> boxes.style.background = "rgb(255, 255, 255)");
 }
 
-// gets user to input new size, removes old grid, makes new grid based on input
+// gets user to input new size, checks for correct input, removes old grid,
+// and then makes new grid based on input
 function inputSize() {
     let answer = prompt("How many squares across would you like?");
+    while (isNaN(answer) || answer < 1 || answer > 99) {
+        answer = prompt("How many squares across would you like? You must input a number " + 
+                        "between 1 and 99");
+    }
     resetGrid();
     makeGrid(answer);
 }
